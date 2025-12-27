@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - ScamResolvedCSI{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 min-h-screen py-12 md:py-20">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Fraud Awareness & Recovery Guide</h1>
+            <p class="text-xl text-gray-600">Learn how to protect yourself and recover from online scams</p>
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="flex flex-wrap gap-3 mb-8">
+            <a href="{% url 'blog:list' %}" class="px-4 py-2 rounded-lg font-semibold {% if not selected_category %}bg-cyan-500 text-white{% else %}bg-white text-gray-700 hover:bg-gray-100{% endif %}">
+                All Posts
+            </a>
+            {% for category in categories %}
+            <a href="{% url 'blog:list' %}?category={{ category.slug }}" class="px-4 py-2 rounded-lg font-semibold {% if selected_category == category.slug %}bg-cyan-500 text-white{% else %}bg-white text-gray-700 hover:bg-gray-100{% endif %}">
+                {{ category.name }}
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Posts Grid -->
+        {% if page_obj %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for post in page_obj %}
+            <div class="card overflow-hidden">
+                <div class="relative group">
+                    {% if post.cover_image %}
+                    <img src="{{ post.cover_image.url }}" alt="{{ post.title }} cover image" loading="lazy" decoding="async" class="w-full h-56 object-cover object-center rounded-t-xl transition-transform duration-500 group-hover:scale-105">
+                    {% else %}
+                    <div class="w-full h-56 rounded-t-xl bg-gradient-to-br from-cyan-500 via-purple-500 to-orange-500 flex items-center justify-center">
+                        <svg aria-hidden="true" class="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7zm3 10l3.5-4.2a2 2 0 013 0L15 17m-1-6a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    {% endif %}
+                    <div aria-hidden="true" class="absolute inset-0 rounded-t-xl bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <p class="text-cyan-600 text-sm font-semibold">{{ post.category.name }}</p>
+                        <span class="text-gray-400">•</span>
+                        <p class="text-gray-500 text-sm">{{ post.created_at|date:"M d, Y" }}</p>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 line-clamp-2">{{ post.title }}</h2>
+                    <p class="text-gray-600 mb-4 line-clamp-2">{{ post.excerpt }}</p>
+                    
+                    {% if post.tags %}
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% load blog_extras %}
+                        {% for tag in post.tags|split_tags %}
+                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <a href="{% url 'blog:detail' post.slug %}" class="text-cyan-600 hover:text-cyan-700 font-semibold">Read more →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center gap-2 flex-wrap">
+            {% if page_obj.has_previous %}
+            <a href="?page=1{% if selected_category %}&category={{ selected_category }}{% endif %}" class="px-4 py-2 rounded bg-white hover:bg-gray-100">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="px-4 py-2 rounded bg-white hover:bg-gray-100">Previous</a>
+            {% endif %}
+            
+            <span class="px-4 py-2">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="px-4 py-2 rounded bg-white hover:bg-gray-100">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="px-4 py-2 rounded bg-white hover:bg-gray-100">Last</a>
+            {% endif %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-600 text-lg">No posts found in this category.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

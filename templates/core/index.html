@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+{% block title %}Recover Your Stolen Funds - ScamResolvedCSI{% endblock %}
+
+{% block extra_css %}
+<meta name="description" content="ScamResolvedCSI helps victims recover stolen funds from online scams. Expert scam tracing, fund recovery services, and support for investment, romance, and tech support scams.">
+<meta name="keywords" content="scam recovery, fraud recovery, online scam help, cryptocurrency scam recovery, romance scam recovery, investment scam recovery">
+<meta property="og:title" content="Recover Your Stolen Funds - ScamResolvedCSI">
+<meta property="og:description" content="Expert scam recovery services. We trace scammers and help victims recover stolen funds with $2.5M+ recovered in 2024-2025.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-gradient network-bg min-h-screen flex items-center justify-center" style="background-image: linear-gradient(135deg, rgba(11, 26, 43, 0.92) 0%, rgba(26, 47, 74, 0.92) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container mx-auto px-4 py-20">
+        <div class="text-center text-white max-w-3xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Recover your stolen funds with confidence
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                We trace scammers, follow the money, and help victims fight back.
+            </p>
+            <a href="{% url 'support:ticket_create' %}" class="inline-block btn-primary px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition">
+                Get Help Now
+            </a>
+            <div class="mt-8 text-lg text-cyan-200">
+                <p><strong>New:</strong> Free scam case review for all new users!</p>
+                <p class="mt-2">Our experts have helped recover over <span class="font-bold">$2.5 million</span> for victims in 2024-2025.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Stories Section -->
+<section class="py-16 md:py-24" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4" style="color: #2d3436;">Real Recovery Stories</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">See how we've helped real people recover their stolen funds</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card p-8" style="border-left-color: #00B894;">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #00B894 0%, #00D1A0 100%);">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold ml-3" style="color: #00B894;">Sarah M.</h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 mb-2">Investment Scam</p>
+                <p class="text-gray-700 mb-3">"I lost $45,000 to a crypto scam. ScamResolvedCSI traced the funds and worked with my bank to recover 94% of my money. I am forever grateful!"</p>
+                <span class="text-xs font-bold px-3 py-1 rounded-full" style="background: #D5F5E9; color: #00B894;">$42,300 Recovered</span>
+            </div>
+            <div class="card p-8" style="border-left-color: #6C5CE7;">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #6C5CE7 0%, #8B7AF5 100%);">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold ml-3" style="color: #6C5CE7;">James T.</h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 mb-2">Romance Scam</p>
+                <p class="text-gray-700 mb-3">"After months of being deceived, I contacted ScamResolvedCSI. They helped me recover $54,000 and brought the scammers to justice."</p>
+                <span class="text-xs font-bold px-3 py-1 rounded-full" style="background: #E9E4FF; color: #6C5CE7;">$54,000 Recovered</span>
+            </div>
+            <div class="card p-8" style="border-left-color: #FF6B35;">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold ml-3" style="color: #FF6B35;">Margaret L.</h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 mb-2">Tech Support Scam</p>
+                <p class="text-gray-700 mb-3">"I almost lost my life savings. Thanks to the quick response, all my funds were returned within hours!"</p>
+                <span class="text-xs font-bold px-3 py-1 rounded-full" style="background: #FFE8DF; color: #FF6B35;">100% Recovery</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="bg-slate-100 py-16 md:py-24">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="font-semibold text-lg mb-2 text-cyan-700">How quickly can you recover my funds?</h3>
+                <p class="text-gray-700">Every case is unique, but acting within the first 24-48 hours greatly increases the chance of recovery. Contact us as soon as possible for the best results.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="font-semibold text-lg mb-2 text-cyan-700">Is my information confidential?</h3>
+                <p class="text-gray-700">Absolutely. All details you provide are encrypted and handled with the strictest confidentiality. We never share your information without your consent.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="font-semibold text-lg mb-2 text-cyan-700">What types of scams do you handle?</h3>
+                <p class="text-gray-700">We help with investment scams, romance scams, tech support scams, phishing, and more. If you’re unsure, submit a support request and our team will advise you.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="font-semibold text-lg mb-2 text-cyan-700">Do you work with law enforcement?</h3>
+                <p class="text-gray-700">Yes, we collaborate with law enforcement and financial institutions worldwide to maximize recovery and bring scammers to justice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-20" style="background: linear-gradient(135deg, #6C5CE7 0%, #8B7AF5 100%);">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to fight back against online fraud?</h2>
+        <p class="text-purple-100 text-lg mb-8 max-w-2xl mx-auto">Our team is here to help you trace, recover, and protect your assets. Don't wait—get expert help now.</p>
+        <a href="{% url 'support:ticket_create' %}" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-block">Submit a Support Request</a>
+    </div>
+</section>
+
+<!-- Trust Indicators -->
+<section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Trust ScamResolvedCSI</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Cyber Intelligence -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2H6a6 6 0 016 6v3a1 1 0 11-2 0v-3a4 4 0 00-4-4H6a1 1 0 000-2h-.5A2.5 2.5 0 002 7.5V9a1 1 0 002 0V5z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Cyber Intelligence</h3>
+                <p class="text-gray-600">Advanced tracing technology and digital forensics</p>
+            </div>
+            
+            <!-- Victim Support -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.5 1.5H5.75A2.25 2.25 0 003.5 3.75v12.5A2.25 2.25 0 005.75 18.5h8.5a2.25 2.25 0 002.25-2.25V6.5m-12 4h8m-8 3h5"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Victim Support</h3>
+                <p class="text-gray-600">Dedicated support team for every step of recovery</p>
+            </div>
+            
+            <!-- Transparency -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Transparency</h3>
+                <p class="text-gray-600">Clear communication throughout the process</p>
+            </div>
+            
+            <!-- Expert Guidance -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.488 5.951 1.488a1 1 0 001.169-1.409l-7-14z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Expert Guidance</h3>
+                <p class="text-gray-600">Insights from cybersecurity and recovery experts</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How We Help -->
+<section class="bg-slate-50 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How We Help</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Scam Tracing -->
+            <div class="card p-8">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-cyan-500 text-white rounded-lg mb-4">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Scam Tracing</h3>
+                <p class="text-gray-600">We follow digital footprints and money trails to identify scammers and their operations across the globe.</p>
+            </div>
+            
+            <!-- Fund Recovery -->
+            <div class="card p-8">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-cyan-500 text-white rounded-lg mb-4">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.16 5.314l4.897-1.596A2 2 0 0116 5.487v8.026a2 2 0 01-2.879 1.854l-4.897-1.596V5.314zm6.362 3.362l3.905 1.274A2 2 0 0120 12.487v3.026a2 2 0 01-2.879 1.854l-3.905-1.274V8.676z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Fund Recovery</h3>
+                <p class="text-gray-600">Locate and recover stolen funds through legal channels and cooperation with financial institutions.</p>
+            </div>
+            
+            <!-- Expert Consultation -->
+            <div class="card p-8">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-cyan-500 text-white rounded-lg mb-4">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Expert Consultation</h3>
+                <p class="text-gray-600">Get personalized advice from cybersecurity and fraud recovery specialists.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Preview -->
+<section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">Latest Resources</h2>
+            <a href="{% url 'blog:list' %}" class="text-cyan-500 hover:text-cyan-600 font-semibold">View all →</a>
+        </div>
+        
+        {% if latest_posts %}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for post in latest_posts %}
+            <div class="card overflow-hidden">
+                {% if post.cover_image %}
+                <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+                {% else %}
+                <div class="w-full h-48 bg-gradient-to-br from-cyan-400 to-blue-600"></div>
+                {% endif %}
+                <div class="p-6">
+                    <p class="text-cyan-600 text-sm font-semibold mb-2">{{ post.category.name }}</p>
+                    <h3 class="text-xl font-bold mb-3">{{ post.title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>
+                    <a href="{% url 'blog:detail' post.slug %}" class="text-cyan-600 hover:text-cyan-700 font-semibold">Read more →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-600">No blog posts available yet.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% if message_sent %}
+<div class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+    ✓ Message sent successfully!
+</div>
+{% endif %}
+
+{% endblock %}

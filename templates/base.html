@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ScamResolvedCSI - Recover Your Stolen Funds{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --navy: #0B1A2B;
+            --cyan: #00D1D1;
+            --orange: #FF6B35;
+            --purple: #6C5CE7;
+            --green: #00B894;
+            --yellow: #FDCB6E;
+            --gray: #F4F7FA;
+            --dark-gray: #2D3436;
+        }
+        
+        html {
+            min-height: 100%;
+        }
+        
+        body {
+            font-family: 'Inter', 'Source Sans Pro', sans-serif;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(135deg, rgba(11, 26, 43, 0.92) 0%, rgba(26, 47, 74, 0.92) 100%),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+        
+        /* Mobile background fix */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, #FF8C42 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, #FF8C42 0%, var(--orange) 100%);
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, rgba(11, 26, 43, 0.98) 0%, rgba(108, 92, 231, 0.15) 100%), rgba(11, 26, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Mobile menu improvements */
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            .desktop-menu {
+                display: none !important;
+            }
+            .navbar {
+                padding: 1rem 0.5rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            .desktop-menu {
+                display: flex !important;
+            }
+            #mobile-menu {
+                display: none !important;
+            }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a52 50%, var(--navy) 100%);
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(108, 92, 231, 0.2);
+            border-left-color: var(--orange);
+        }
+        
+        .network-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .network-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 209, 209, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 209, 209, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Mobile responsive text */
+        @media (max-width: 640px) {
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-cyan-400 flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/>
+                    </svg>
+                    <span class="hidden sm:inline">ScamResolvedCSI</span>
+                    <span class="sm:hidden">SRCSI</span>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn text-white">
+                    <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="desktop-menu flex gap-4 md:gap-6 items-center">
+                    <a href="{% url 'core:home' %}" class="text-white hover:text-cyan-400 transition text-sm md:text-base">Home</a>
+                    <a href="{% url 'blog:list' %}" class="text-white hover:text-cyan-400 transition text-sm md:text-base">Blog</a>
+                    <a href="{% url 'support:ticket_create' %}" class="btn-primary px-3 py-2 md:px-4 rounded text-sm md:text-base">Support</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden mt-4 pb-4">
+                <a href="{% url 'core:home' %}" class="block text-white hover:text-cyan-400 transition py-2">Home</a>
+                <a href="{% url 'blog:list' %}" class="block text-white hover:text-cyan-400 transition py-2">Blog</a>
+                <a href="{% url 'support:ticket_create' %}" class="block text-white hover:text-cyan-400 transition py-2">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-cyan-400 font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">Email: cyberrefundsecFTC@cyberdude.com</p>
+                    <p class="text-gray-400 text-sm">WhatsApp: (347) 655-5471</p>
+                </div>
+                <div>
+                    <h4 class="text-cyan-400 font-bold mb-4">Services</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-cyan-400">Scam Tracing</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Fund Recovery</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-cyan-400 font-bold mb-4">Resources</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="{% url 'blog:list' %}" class="hover:text-cyan-400">Blog</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Guides</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-cyan-400 font-bold mb-4">Legal</h4>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-cyan-400">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-center text-gray-400 text-sm mb-4">
+                    &copy; {% now "Y" %} ScamResolvedCSI. All rights reserved.
+                </p>
+                <p class="text-center text-gray-400 text-sm">
+                    Combatting online fraud with intelligence.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

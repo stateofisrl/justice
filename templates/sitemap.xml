@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home page -->
+    <url>
+        <loc>{{ request.build_absolute_uri|add:'/' }}</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Blog list page -->
+    <url>
+        <loc>{{ request.build_absolute_uri|add:'/blog/' }}</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Support page -->
+    <url>
+        <loc>{{ request.build_absolute_uri|add:'/support/ticket/new/' }}</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog posts -->
+    {% for post in posts %}
+    <url>
+        <loc>{{ request.build_absolute_uri }}{{ post.get_absolute_url }}</loc>
+        <lastmod>{{ post.updated_at|date:'Y-m-d' }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+</urlset>

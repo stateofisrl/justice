@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: scamresolvedcsi
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: ./build.sh
+    startCommand: gunicorn config.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: DJANGO_ALLOWED_HOSTS
+        value: scamresolvedcsi.onrender.com
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scamresolvedcsi-db
+          property: connectionString
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://*.onrender.com
+      - key: WEB_CONCURRENCY
+        value: "2"
+  - type: postgresql
+    name: scamresolvedcsi-db
+    plan: free

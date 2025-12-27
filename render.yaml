@@ -10,19 +10,13 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.3
       - key: DJANGO_ALLOWED_HOSTS
-        value: scamresolvedcsi.onrender.com
+        sync: false
       - key: SECRET_KEY
         generateValue: true
-      - key: DATABASE_URL
-        fromDatabase:
-          name: scamresolvedcsi-db
-          property: connectionString
       - key: CSRF_TRUSTED_ORIGINS
-        value: https://*.onrender.com
+        sync: false
       - key: WEB_CONCURRENCY
         value: "2"
+      - key: DEBUG
+        value: "False"
 
-databases:
-  - name: scamresolvedcsi-db
-    databaseName: scamresolvedcsi
-    user: scamresolvedcsi
